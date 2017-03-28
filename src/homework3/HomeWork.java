@@ -32,6 +32,8 @@ public class HomeWork extends JFrame implements Runnable{
 	FileInputStream fis;
 	FileOutputStream fos;
 	Thread tf;
+	
+	File save;
 	public HomeWork() {
 	  bar=new JProgressBar();
 	  bar.setForeground(Color.YELLOW);
@@ -63,7 +65,8 @@ public class HomeWork extends JFrame implements Runnable{
 		  
 		 public void actionPerformed(ActionEvent e) {
 			choser.showOpenDialog(HomeWork.this);
-			String path=choser.getSelectedFile().getPath();
+			save=choser.getSelectedFile();
+			String path=save.getPath();
 			tf_open.setText(path);
 			
 		}
@@ -73,7 +76,10 @@ public class HomeWork extends JFrame implements Runnable{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			choser.showSaveDialog(HomeWork.this);
+			
 			File a =choser.getCurrentDirectory();
+			
+			
 			String name=choser.getSelectedFile().getName();
 			String path=a.getAbsolutePath();
 			
